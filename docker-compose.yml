@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+
+  moral-model:
+    build: models
+    image: ghcr.io/gsi-upm/moral-values-models:0.1.0
+    environment:
+      - HF_MODEL_NAME=gsi-upm/Roberta-Moral-Presence
+    networks:
+      - model_network
+
+  moralpolarity-model:
+    build: models
+    image: ghcr.io/gsi-upm/moral-values-models:0.1.0
+    environment:
+      - HF_MODEL_NAME=gsi-upm/Roberta-Moral-Polarity
+    networks:
+      - model_network
+
+
+  multimoral-model:
+    build: models
+    image: ghcr.io/gsi-upm/moral-values-models:0.1.0
+    environment:
+      - HF_MODEL_NAME=gsi-upm/Roberta-MultiMoral-Presence
+    networks:
+      - model_network
+
+
+  multimoralpolarity-model:
+    build: models
+    image: ghcr.io/gsi-upm/moral-values-models:0.1.0
+    environment:
+      - HF_MODEL_NAME=gsi-upm/Roberta-MultiMoral-Polarity
+    networks:
+      - model_network
+
+
+  moral-values-api:
+    build: backend
+    image: ghcr.io/gsi-upm/moral-values-api:0.1.0
+    container_name: moral-values-api
+    ports:
+      - 80:8000
+    networks:
+      - model_network
+
+  frontend:
+    build: frontend
+    ports:
+      - 8501:8501
+    depends_on:
+      - moral-values-api
+    volumes:
+      - ./frontend:/app
+    #restart: always
+    networks:
+      - model_network
+    container_name: frontend
+    
+networks:
+  model_network:
+    driver: bridge
+
+
+
