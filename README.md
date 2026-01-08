@@ -19,12 +19,4 @@ cd llm-text-analysis
 docker compose up
 ```
 
-### Production
 
-```bash
-docker compose build
-docker compose up -d
-```
-
-
-MIT License
