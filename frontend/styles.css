@@ -1,0 +1,46 @@
+/* Fondo */
+.stApp {
+    background-color: #663f70;
+}
+
+/* Texto general */
+html, body {
+    color: white;
+}
+
+/* Título */
+h1 {
+    color: black;
+    text-align: left;
+}
+
+/* Texto */
+p {
+    color: white;
+}
+
+/* Inputs */
+textarea,
+div[data-baseweb="select"] > div {
+    background-color: white !important;
+    color: black !important;
+    border-radius: 10px;
+}
+
+/* Labels */
+label {
+    color: white !important;
+}
+
+/* Botón */
+.stButton > button {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.stButton > button:hover {
+    background-color: white;
+    color: black;
+}

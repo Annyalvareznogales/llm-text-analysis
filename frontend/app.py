@@ -1,7 +1,10 @@
 import streamlit as st
 import requests
 
-st.title('Moral Values Analysis')
+with open("styles.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+st.markdown('<h1 style="color:black; text-align:left;">Moral Values Analysis</h1>', unsafe_allow_html=True)
 
 st.write("This app analyzes the moral values present in a given text.")
 

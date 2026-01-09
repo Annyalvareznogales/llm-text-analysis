@@ -2,7 +2,7 @@ import os
 import torch
 from litserve import LitServer
 from huggingface_hub import login
-from models import * 
+from models.models import * 
 
 HF_MODEL_NAME = os.environ["HF_MODEL_NAME"]
 
